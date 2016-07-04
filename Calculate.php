@@ -13,6 +13,8 @@ class Calculate
     public $a;
     public $b;
     public $operator;
+    public $logger;
+    public $result;
 
     public function __construct(int $a, int $b ,string $operator)
     {
@@ -43,34 +45,57 @@ class Calculate
 
     public function involution() :int
     {
-        $result=1;
+        $res=1;
         for ($i=0; $i<$this->b; $i++)
         {
-            $result=2*$this->b;
+            $res=2*$this->b;
         }
-        return $result;
+        return $res;
     }
 
-    public function calc()
+    public function setLogger($logger)
+    {
+        $this->logger=$logger;
+    }
+
+    public function calc($logger)
     {
         switch ($this->operator) {
             case "+":
-                echo $this->addition();
+                $result= $this->addition();
                 break;
             case "/":
-                echo $this->division();
+                $result=  $this->division();
                 break;
             case "*":
-                echo $this->multiplication();
+                $result=  $this->multiplication();
                 break;
             case "-":
-                echo $this->subtraction();
+                $result=  $this->subtraction();
                 break;
             case "^":
-                echo $this->involution();
+                $result=  $this->involution();
                 break;
             default:
-                echo "Вы ввели неверный оператор. Выберите один из следующих операторов: '+', '-', '*', '/'.";
+                $result=  "Вы ввели неверный оператор. Выберите один из следующих операторов: '+', '-', '*', '/'.";
         }
+
+        $this->setLogger(new class ($result){
+            public function __construct($msg){
+                // строка, которую будем записывать
+                $text = $msg;
+
+// открываем файл, если файл не существует,
+//делается попытка создать его
+                $fp = fopen("file.txt", "w");
+
+// записываем в файл текст
+                fwrite($fp, $text);
+
+// закрываем
+                fclose($fp);
+            }
+        });
+        echo $result;
     }
 }
