@@ -1,0 +1,18 @@
+{
+  "name":"popova/bsa_homework1_popova",
+  "description":"Files for the first homework",
+  "minimum_stability":"stable",
+  "license":"proprietary",
+  "authors":[
+    {
+      "name":"Lyudmila",
+      "email":"tobeinword1987@gmail.com"
+    }
+  ],
+  "require": {
+    "php":">=7.0"
+  },
+  "autoload-dev":{
+      "classmap":["./"]
+    }
+}
