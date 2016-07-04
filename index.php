@@ -11,7 +11,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 try
 {
-    $calculation=new Calculate(4,3,"*");
+    $calculation=new Calculate(4,5,"/");
     echo $calculation->calc();
 }
 catch (TypeError $ex)

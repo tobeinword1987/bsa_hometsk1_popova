@@ -1,0 +1,4 @@
+%Tuesday 5th of July 2016 12:10:27 AM% %*% %4% %5% %20%
+%Tuesday 5th of July 2016 12:10:28 AM% %*% %4% %5% %20%
+%Tuesday 5th of July 2016 12:10:30 AM% %*% %4% %5% %20%
+%Tuesday 5th of July 2016 12:10:50 AM% %/% %4% %5% %0.8%
