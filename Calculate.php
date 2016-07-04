@@ -48,7 +48,7 @@ class Calculate
         $res=1;
         for ($i=0; $i<$this->b; $i++)
         {
-            $res=2*$this->b;
+            $res=$res*2;
         }
         return $res;
     }
