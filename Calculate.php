@@ -10,11 +10,11 @@
 class Calculate
 {
 
-    public $a;
-    public $b;
-    public $operator;
-    public $logger;
-    public $result;
+    private $a;
+    private $b;
+    private $operator;
+    private $logger;
+    private $result;
 
     public function __construct(int $a, int $b ,string $operator)
     {
@@ -60,9 +60,6 @@ class Calculate
 
     public function calc($logger)
     {
-        $operator_local=$this->operator;
-        $first_operand=$this->a;
-        $second_operand=$this->b;
         switch ($this->operator) {
             case "+":
                 $result= $this->addition();
@@ -83,7 +80,7 @@ class Calculate
                 $result=  "Вы ввели неверный оператор. Выберите один из следующих операторов: '+', '-', '*', '/'.";
         }
 
-        $this->setLogger(new class ($result,$operator_local,$first_operand,$second_operand){
+        $this->setLogger(new class ($result,$this->operator,$this->a,$this->b){
             public function __construct($result,$operator_local,$first_operand,$second_operand){
                 // строка, которую будем записывать
                 $text = "%".date('l jS \of F Y h:i:s A')."% %$operator_local% %$first_operand% %$second_operand% %$result%";
